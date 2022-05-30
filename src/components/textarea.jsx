@@ -1,4 +1,4 @@
-function TextArea (){
+function TextArea ({xmltext}){
 return(
     <div >
         <textarea 
@@ -11,7 +11,7 @@ return(
         className="border-4 resize-none bg-neutral-100"
         
         
-        ></textarea>
+        >{xmltext}</textarea>
     </div>
 
 )

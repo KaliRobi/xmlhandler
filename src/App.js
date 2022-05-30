@@ -1,8 +1,10 @@
+import {AppProvider} from "./context/AppContext";
 import MainPage from "./page/MainPage";
 import NavBar from "./components/header";
 
 function App() {
   return (
+    <AppProvider>
     
     <div className="h-max">
       <div>
@@ -16,6 +18,7 @@ function App() {
     
     
     </ div>
+    </AppProvider>
   );
 }
 

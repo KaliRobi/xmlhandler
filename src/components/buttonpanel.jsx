@@ -1,4 +1,7 @@
 import Button from "./button";
+import {useContext, useEffect} from 'react';
+
+
 
 function Buttonspanel(){
     return  (

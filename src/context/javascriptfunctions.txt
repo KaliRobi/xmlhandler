@@ -52,3 +52,24 @@ const text = document.getElementById('xml').value;
     const secondTagArray = Array.from(secondtTagNodelist);
     let diffNotInFirst = firstTagArray.filter(el => !secondTagArray.includes(el));
     let diffNotInsecond = secondTagArray.filter(el => !firstTagArray.includes(el));
+
+
+
+
+<root>  <write>1536854537</write>  <clothing>    <anything>-365013881</anything><greater><alive>-1921360719.73777</alive>
+      <vast>with</vast>
+      <share>decide</share>
+      <alike>wait</alike>
+      <board>pony</board>
+      <arrow>angle</arrow>
+    </greater>
+    <mail>968040053.3846254</mail>
+    <bottom>271132725.6407275</bottom>
+    <group>2098584600</group>
+    <task>-1656854956.0936575</task>
+  </clothing>
+  <cave>page</cave>
+  <sharp>1823517927.3793287</sharp>
+  <anybody>-1007165639.0820799</anybody>
+  <seat>alive</seat>
+</root>

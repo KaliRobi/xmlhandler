@@ -19,10 +19,10 @@ const AppReducer = (state, action) => {
                 ...state,
                 xmltext: "logged"
             }
-        case 'DIFFERCONTENT':
+        case 'TTT':
             return {
                 ...state,
-                xmltext: "logged"
+                xmltext: action.playload
             }
     }
 }

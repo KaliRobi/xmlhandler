@@ -73,3 +73,32 @@ const text = document.getElementById('xml').value;
   <anybody>-1007165639.0820799</anybody>
   <seat>alive</seat>
 </root>
+
+
+    //     <div className=" h-screen bg-gray-300">
+    // <div className=' flex flex-row  justify-center'>
+       
+    //     <div className='basis-1/3 m-6 justify-center'>
+    //     <TextArea  xmltext={xmltext}/>
+    //     </div>
+    //     <div className='basis-1/3 m-6 justify-end'>
+    //     <div className="flex justify-center my-10  ">
+    //         <form onSubmit={handleclick}>                
+    //             <div form-control="true">
+    //         <Button name={'>> Style >>'}   />  
+    //         </div>  
+    //         </form>       
+    //            </div>               
+    //             <div className="flex justify-center my-10">             
+    //         <Button name={'<< Compare >>'} />
+    //         </div>
+    //         <div className="flex justify-center my-10">             
+    //         <Button name={'<< Merge >>'} />
+    //         </div>
+    //     </div>
+    //     <div className='basis-1/3 m-6 justify-center'>
+    //     <TextArea />
+    //     </div>
+        
+    // </div>
+    // </div>

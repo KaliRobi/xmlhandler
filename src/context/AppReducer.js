@@ -6,23 +6,15 @@ const AppReducer = (state, action) => {
                 ...state,
                 data: action.playload
             }
-
-        //clears out the textfileds
-        case 'REMOVECONTENT':
-            return {
-                ...state,
-                xmltext: ""
-            }
-
-        case 'MERGECONTENT':
-            return {
-                ...state,
-                xmltext: "logged"
-            }
-        case 'TTT':
+        case 'GETXMLTEXT':
             return {
                 ...state,
                 xmltext: action.playload
+            }
+        case 'SETXMLTEXT':
+            return {
+                ...state,
+                xmltext: action.payload
             }
     }
 }

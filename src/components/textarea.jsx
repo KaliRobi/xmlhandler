@@ -1,4 +1,7 @@
-function TextArea ({xmltext}){
+
+
+
+function TextArea ({id, value}){
 return(
     <div >
         <textarea 
@@ -7,11 +10,12 @@ return(
         autoCapitalize="off"
         rows={32}
         cols={70}
-        
+        id={id}
         className="border-4 resize-none bg-neutral-100"
+        defaultValue={value}
         
         
-        >{xmltext}</textarea>
+        ></textarea>
     </div>
 
 )

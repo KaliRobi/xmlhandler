@@ -22,18 +22,12 @@ export const AppProvider = ({children}) => {
     }
     // userReducer takes the  reducer function we mae and the inital state
     const [state, dispatch] = useReducer(AppReducer, initialState)
-
-    const xmlsender = (text)=>{
-        const updatedText = state.xmltext
-        dispatch({
-            type: 'TTT',
-            payload: updatedText
-        })
-    }
-
-
-    const formatXml = (text) => {  
     
+ 
+
+
+    const formatXml = (id) => {  
+        const text = document.getElementById(`${id}`).value
         if(text.match('/(<.[^(><.)]+>)/')){  ///this needs to be chnaged to test for tags
         var xmlDoc = new DOMParser().parseFromString(text, 'application/xml');
          var xsltDoc = new DOMParser().parseFromString([
@@ -53,21 +47,44 @@ export const AppProvider = ({children}) => {
         var xsltProcessor = new XSLTProcessor();    
         xsltProcessor.importStylesheet(xsltDoc);
         var resultDoc = xsltProcessor.transformToDocument(xmlDoc);
-        var resultXml = new XMLSerializer().serializeToString(resultDoc);
+        var xmltext = new XMLSerializer().serializeToString(resultDoc);
     
         dispatch({
             type: 'FORMATDOCUMENT',
-            payload: resultXml
+            payload: xmltext
         }) 
        
         
     };
     }
 
+    const setXmlText = (id) => {
+        const xmltext = document.getElementById(`${id}`).value
+        
+        if(xmltext){
+            dispatch({
+                type: 'SETXMLTEXT',
+                payload : xmltext
+            })
+            
+        }    
+
+    }
+
+    const getXmlText = () => {
+        dispatch({
+            type: 'GETXMLTEXT'
+        })
+
+
+    }
+    
 return <AppContext.Provider value = {{
         xmltext: state.xmltext,
-        xmlsender,
         formatXml,
+        setXmlText,
+        
+        getXmlText
         
 }}>{children}</AppContext.Provider>
 

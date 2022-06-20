@@ -17,18 +17,33 @@ const AppContext = createContext()
 
 export const AppProvider = ({children}) => {
     const initialState ={
-        xmltext: ""
+        xmltext: "", 
+        error: "",
+        counter : 1
      
     }
     // userReducer takes the  reducer function we mae and the inital state
     const [state, dispatch] = useReducer(AppReducer, initialState)
-    
- 
+
+    const setAlert = (msg)=> {
+        dispatch({
+            type: 'SET_ALERT',
+            payload: msg
+        })
+   
+        setTimeout(() => dispatch({
+            type: 'REMOVE_ALERT'
+        }), 3000)
+    }
+// TODO
+// match with xml
+// no match = > error
 
 
-    const formatXml = (id) => {  
+     const formatXml = (id) => {  
         const text = document.getElementById(`${id}`).value
-        if(text.match('/(<.[^(><.)]+>)/')){  ///this needs to be chnaged to test for tags
+        
+        if(text.match(/<([^\/>]+)[\/]*>/)){  ///this needs to be chnaged to test for tags
         var xmlDoc = new DOMParser().parseFromString(text, 'application/xml');
          var xsltDoc = new DOMParser().parseFromString([
             // styleing of the xml, tags should be highlighted somehow
@@ -48,43 +63,52 @@ export const AppProvider = ({children}) => {
         xsltProcessor.importStylesheet(xsltDoc);
         var resultDoc = xsltProcessor.transformToDocument(xmlDoc);
         var xmltext = new XMLSerializer().serializeToString(resultDoc);
-    
+        
         dispatch({
             type: 'FORMATDOCUMENT',
             payload: xmltext
         }) 
        
         
-    };
+    } else {
+        setAlert('Does not seem like an XML file')
+        changeCounter()
+        console.log(state)
+    }
     }
 
-    const setXmlText = (id) => {
-        const xmltext = document.getElementById(`${id}`).value
-        
-        if(xmltext){
-            dispatch({
-                type: 'SETXMLTEXT',
-                payload : xmltext
-            })
-            
-        }    
 
-    }
-
-    const getXmlText = () => {
+     const changeCounter = () =>{
         dispatch({
-            type: 'GETXMLTEXT'
+            type: 'CHANEGCOUNTER'
+        })
+     }
+
+    
+// the style should have a second function, to clear all the fields.
+    const clearXmlText = () => {
+        document.getElementById('input').value = ''
+        dispatch({
+            type: 'CLEARXMLTEXT'
         })
 
 
     }
+
+
+ 
+
+  
     
 return <AppContext.Provider value = {{
         xmltext: state.xmltext,
+        counter: state.counter,
+        originalText : state.text,
+        alert: state.error,
         formatXml,
-        setXmlText,
+        clearXmlText,
+        changeCounter,
         
-        getXmlText
         
 }}>{children}</AppContext.Provider>
 

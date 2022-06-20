@@ -4,19 +4,32 @@ const AppReducer = (state, action) => {
         case 'FORMATDOCUMENT':
             return {
                 ...state,
-                data: action.playload
-            }
-        case 'GETXMLTEXT':
-            return {
-                ...state,
-                xmltext: action.playload
-            }
-        case 'SETXMLTEXT':
-            return {
-                ...state,
                 xmltext: action.payload
             }
+        case 'CLEARXMLTEXT':
+            return {
+                ...state,
+                xmltext: "",
+                
+            }
+        case 'CHANEGCOUNTER':
+            return{
+                ...state,
+                counter: (state.counter * -1)
+            }
+        case 'SET_ALERT':
+            return {
+                ...state,
+                error: action.payload
+            }
+        case 'REMOVE_ALERT':
+            return {
+                ...state,
+                error: null}
+        default:
+            return state
     }
+        
 }
 
 export default AppReducer

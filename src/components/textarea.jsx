@@ -8,8 +8,8 @@ return(
         wrap="off" 
         autoCorrect="off" 
         autoCapitalize="off"
-        rows={32}
-        cols={70}
+        rows={38}
+        cols={78}
         id={id}
         className="border-4 resize-none bg-neutral-100"
         defaultValue={value}

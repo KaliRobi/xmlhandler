@@ -5,14 +5,13 @@ import AppReducer from "./AppReducer";
 // TODO
 // add it to the react
 // create a compare function which takes all the headers DONE
-// do some test
 // set decent regex
 // xml, tags should be highlighted somehow
 // differences should be displayed somehow
 
-// TODO ON REACT
-// set up initial state
-// when the buttons are clicker the context need to fire
+// TODO problems 
+// when there is a change in outcome field with style, it does not reset the filed. 
+
 const AppContext = createContext()
 
 export const AppProvider = ({children}) => {
@@ -35,9 +34,7 @@ export const AppProvider = ({children}) => {
             type: 'REMOVE_ALERT'
         }), 3000)
     }
-// TODO
-// match with xml
-// no match = > error
+
 
 
      const formatXml = (id) => {  

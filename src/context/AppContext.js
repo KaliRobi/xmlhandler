@@ -11,12 +11,14 @@ import AppReducer from "./AppReducer";
 
 // TODO problems 
 // when there is a change in outcome field with style, it does not reset the filed. 
+// when the first button is used, set the read only flag.
 
 const AppContext = createContext()
 
 export const AppProvider = ({children}) => {
     const initialState ={
-        xmltext: "", 
+        xmltext: "",
+        xmltextright: '', 
         error: "",
         counter : 1
      
@@ -91,7 +93,26 @@ export const AppProvider = ({children}) => {
 
 
     }
+// TODO
 
+
+// get the documents. And with Fetch it will be alright at the moment
+// but it needs to be cahnged later on, somehow figuring out how to change 
+// the state witout .getelementbyid
+
+
+// after the document is here, parsed, I need the values and the tags too.
+
+
+// in the UI it needs to be selectable that we weant to compare only the tags or the value too.
+
+const compareDocuments = () => {
+        const text1 = state.xmltext;
+        const text2 = state.xmltextright
+        console.log(text2)
+
+
+}
 
  
 
@@ -102,10 +123,11 @@ return <AppContext.Provider value = {{
         counter: state.counter,
         originalText : state.text,
         alert: state.error,
+        xmltextright : state.xmltextright,
         formatXml,
         clearXmlText,
         changeCounter,
-        
+        compareDocuments
         
 }}>{children}</AppContext.Provider>
 

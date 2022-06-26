@@ -11,10 +11,17 @@ import Alerting from '../components/alert';
 
 function MainPage() {
 
-    const  { clearXmlText, changeCounter, counter, xmltext, text, formatXml} = useContext(AppContext)
+    const  { clearXmlText, changeCounter, compareDocuments, counter, xmltext, text, formatXml} = useContext(AppContext)
 // what if we set up the thing on button level.
 
 const handlesubmit = (e) => {
+    e.preventDefault()
+    formatXml('input');
+    changeCounter()
+    console.log('style')
+}
+
+const handlesubmitSecond = (e) => {
     e.preventDefault()
     formatXml('input');
     changeCounter()
@@ -69,7 +76,8 @@ const cleatText = (e) =>{
         </div>  
         </div>
         <div className='basis-1/3 m-6 justify-center'>
-        <TextArea value={xmltext} />
+            {/* /* TODO read only  {} the readonly ttibute needs to be get ? :  in on a new state value. and this is how I can reuse this field for the second seciton too*/ }
+        {<TextArea value={xmltext}  />}
         </div>
         
      </div>

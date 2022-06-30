@@ -86,7 +86,7 @@ export const AppProvider = ({children}) => {
     
 // the style should have a second function, to clear all the fields.
     const clearXmlText = () => {
-        document.getElementById('input').value = ''
+        document.getElementById('left').value = ''
         dispatch({
             type: 'CLEARXMLTEXT'
         })
@@ -96,7 +96,7 @@ export const AppProvider = ({children}) => {
 // TODO
 
 
-// get the documents. And with Fetch it will be alright at the moment
+
 // but it needs to be cahnged later on, somehow figuring out how to change 
 // the state witout .getelementbyid
 
@@ -106,10 +106,21 @@ export const AppProvider = ({children}) => {
 
 // in the UI it needs to be selectable that we weant to compare only the tags or the value too.
 
+function getXml(id) {
+  return  document.getElementById(id).value
+
+}
+
+
+
 const compareDocuments = () => {
-        const text1 = state.xmltext;
-        const text2 = state.xmltextright
-        console.log(text2)
+        state.xmltext = getXml('left')
+        state.xmltextright = getXml('right')
+        console.log(state.xmltextright)
+        console.log(state.xmltextright)
+
+        // document needs to be rebilt and  geive some background colour to it when a line differs
+
 
 
 }

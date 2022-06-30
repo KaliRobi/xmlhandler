@@ -23,8 +23,8 @@ const handlesubmit = (e) => {
 
 const handlesubmitSecond = (e) => {
     e.preventDefault()
-    formatXml('input');
     changeCounter()
+    compareDocuments()
     console.log('style')
 }
 const cleatText = (e) =>{
@@ -47,7 +47,7 @@ const cleatText = (e) =>{
         <div className='basis-1/3 m-6 justify-center'>
        
         
-        <TextArea id='input' />
+        <TextArea id='left' />
         </div>
         
         <div className='basis-1/3 m-0 justify-end'>
@@ -61,7 +61,7 @@ const cleatText = (e) =>{
         </div>  
         
         <div className="flex justify-center my-5  ">
-            <form onSubmit={handlesubmit}>              
+            <form onSubmit={handlesubmitSecond}>              
             <div className="flex justify-center ">
             <Button name={' Compare '}  />  
            </div>   
@@ -77,7 +77,7 @@ const cleatText = (e) =>{
         </div>
         <div className='basis-1/3 m-6 justify-center'>
             {/* /* TODO read only  {} the readonly ttibute needs to be get ? :  in on a new state value. and this is how I can reuse this field for the second seciton too*/ }
-        {<TextArea value={xmltext}  />}
+        {<TextArea id ='right' value={xmltext}  />}
         </div>
         
      </div>

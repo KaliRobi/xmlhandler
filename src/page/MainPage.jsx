@@ -16,7 +16,7 @@ function MainPage() {
 
 const handlesubmit = (e) => {
     e.preventDefault()
-    formatXml('input');
+    formatXml('left');
     changeCounter()
     console.log('style')
 }
@@ -37,20 +37,20 @@ const cleatText = (e) =>{
  
 
     return(
-        <div className=" h-screen bg-gray-300">
+        <div className=" h-full bg-gray-300">
      <div className="flex justify-center m-0 ">
             <Alerting/>
         </div>
     <div className=' flex flex-row  justify-center'>
     
        
-        <div className='basis-1/3 m-6 justify-center'>
+        <div className='basis-3/5 m-6 justify-center'>
        
         
         <TextArea id='left' />
         </div>
         
-        <div className='basis-1/3 m-0 justify-end'>
+        <div className='basis-1/7 m-0 justify-end'>
        
         <div className="flex justify-center my-5 mt-10  ">
             <form onSubmit={counter == 1 ? handlesubmit : cleatText}>              
@@ -75,7 +75,7 @@ const cleatText = (e) =>{
             </form>  
         </div>  
         </div>
-        <div className='basis-1/3 m-6 justify-center'>
+        <div className='basis-3/5 m-6 h-screen justify-center'>
             {/* /* TODO read only  {} the readonly ttibute needs to be get ? :  in on a new state value. and this is how I can reuse this field for the second seciton too*/ }
         {<TextArea id ='right' value={xmltext}  />}
         </div>

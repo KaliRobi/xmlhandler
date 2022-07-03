@@ -132,56 +132,31 @@ const compareDocuments = () => {
         parsedRight.querySelectorAll("*").forEach(it => rightArr.push(it.tagName))
         parsedLeft.querySelectorAll("*").forEach(it => leftArr.push(it.tagName))
         
-        const fullRightDoc = []
-        parsedRight.querySelectorAll("*").forEach(it => fullRightDoc.push(it))
-        
-        const leftOnly =  leftArr.filter( it => !rightArr.includes(it) ) // and the index of the tag is not the same
+        const yyy = []
+        parsedRight.querySelectorAll("*").forEach(it => yyy.push(it))
+        console.log(yyy)
+        const leftOnly =  leftArr.filter( it => !rightArr.includes(it))
         const rightOnly = rightArr.filter(it => !leftArr.includes(it))
         // console.log(leftOnly)
         // console.log(rightOnly)
         // try to cteate an object which maps the number of child items
 
-        // each node gets a value of the child notes
-        // multidimensiona array: the sub arrays should contacn the number of the sub nodes
-        let tot = []
-        let totText = ""
-        rightOnly.forEach(element => {
-            fullRightDoc.forEach(el => {
-                if(element == el.tagName){
-                tot.push(el)
-                
-                // console.log(typeof fullRightDoc)
-            }}
-        
+        let rightMap = new Object()
+        // create a object and assign the keys as the tags are
+        // map csak akkor jo ha nem ugyan az az kulcs
+        rightArr.forEach( it  => {
+            rightMap[`${it}`] ? rightMap[`${it}{Math.random()}`] =0 :
             
-            )})
-        // forloop kelleni fog
-        console.log(tot[2].outerHTML)
-        
-        //EZ ITT  HELYE AHOL A MENNYISEGE KULONBSEGEKET NEZZUK MEG
-        //NEM CSSAK A TAG DE A VALUE IS FONTOS LESZ
-
-        // a root elemebol kell kiindulni
-        
-        console.log(tot)
-            
-        
+            rightMap[`${it}`] = 0 }) 
+        // contentRight.forEach(item => console.log(item)).forEach(it => {
+        //     it.startsWith(" ") ? 
+        // })
+        //console.log(rightMap)
 
 
-        //  const kkk = loopNoods(fullRightDoc[0])
-
-        // const numberos = []    
-        
-        // fullRightDoc.forEach( item => {
-        //     numberos.push(item)
-        //     numberos.push( item.childElementCount )})
-        // console.log(kkk)
         
         
-       //each node value represents the distance between itself and the next parent node
-
-// erteke csak annak van amelyik 0as 
-// a prent 
+       
 
 
 

@@ -148,15 +148,15 @@ const compareDocuments = () => {
             rightMap[`${it}`] ? rightMap[`${it}{Math.random()}`] =0 :
             
             rightMap[`${it}`] = 0 }) 
-        
+        // contentRight.forEach(item => console.log(item)).forEach(it => {
+        //     it.startsWith(" ") ? 
+        // })
+        //console.log(rightMap)
 
-        // each node gets a value of the child notes
-        // multidimensiona array: the sub arrays should contacn the number of the sub nodes
-        
 
         
         
-       
+        //go throug the contect and increment the value if the content starts with \n
 
 
 

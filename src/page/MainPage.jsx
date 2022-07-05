@@ -11,14 +11,15 @@ import Alerting from '../components/alert';
 
 function MainPage() {
 
-    const  { clearXmlText, changeCounter, compareDocuments, counter, xmltext, text, formatXml} = useContext(AppContext)
+    const  { clearXmlText, changeCounter, compareDocuments, setNotReadOnly, notReadOnlyElement,  counter, xmltext, text, formatXml} = useContext(AppContext)
 // what if we set up the thing on button level.
 
 const handlesubmit = (e) => {
     e.preventDefault()
     formatXml('left');
     changeCounter()
-    console.log('style')
+    setNotReadOnly()
+    console.log(notReadOnlyElement)
 }
 
 const handlesubmitSecond = (e) => {
@@ -29,9 +30,10 @@ const handlesubmitSecond = (e) => {
 }
 const cleatText = (e) =>{
     e.preventDefault()
-    console.log('reset')
     clearXmlText()
     changeCounter()
+    setNotReadOnly()
+    console.log(notReadOnlyElement)
 
 }
  
@@ -63,21 +65,21 @@ const cleatText = (e) =>{
         <div className="flex justify-center my-5  ">
             <form onSubmit={handlesubmitSecond}>              
             <div className="flex justify-center ">
-            <Button name={' Compare '}  />  
+            {/* <Button name={' Compare '}  />   */}
            </div>   
             </form>  
         </div>  
         <div className="flex justify-center my-5  ">
             <form onSubmit={handlesubmit}>              
             <div className="flex justify-center">
-            <Button name={' Merge '} onSubmit={handlesubmit} />  
+            {/* <Button name={' Merge '} onSubmit={handlesubmit} />   */}
            </div>   
             </form>  
         </div>  
         </div>
-        <div className='basis-3/5 m-6 h-screen justify-center'>
+        <div className='basis-3/5 m-6 h-5/6 justify-center'>
             {/* /* TODO read only  {} the readonly ttibute needs to be get ? :  in on a new state value. and this is how I can reuse this field for the second seciton too*/ }
-        {<TextArea id ='right' value={xmltext}  />}
+        {notReadOnlyElement == 1 ? <TextArea id ='right' value={xmltext} /> : <TextArea id ='right' value={xmltext} ro={notReadOnlyElement} /> }
         </div>
         
      </div>

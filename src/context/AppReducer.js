@@ -26,6 +26,11 @@ const AppReducer = (state, action) => {
             return {
                 ...state,
                 error: null}
+        case 'NOTREADONLY':
+            return {
+                ...state,
+                notReadOnlyElement: (state.notReadOnlyElement * -1)
+            }
         default:
             return state
     }

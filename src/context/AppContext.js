@@ -20,7 +20,8 @@ export const AppProvider = ({children}) => {
         xmltext: "",
         xmltextright: '', 
         error: "",
-        counter : 1
+        counter : 1,
+        notReadOnlyElement: 1
      
     }
     // userReducer takes the  reducer function we mae and the inital state
@@ -111,6 +112,13 @@ function getXml(id) {
 
 }
 
+const setNotReadOnly = () =>{
+    dispatch({
+        type: 'NOTREADONLY'
+    })
+
+}
+
 
 
 const compareDocuments = () => {
@@ -165,29 +173,6 @@ const compareDocuments = () => {
         
         console.log(tot)
             
-        
-
-
-        //  const kkk = loopNoods(fullRightDoc[0])
-
-        // const numberos = []    
-        
-        // fullRightDoc.forEach( item => {
-        //     numberos.push(item)
-        //     numberos.push( item.childElementCount )})
-        // console.log(kkk)
-        
-        
-       //each node value represents the distance between itself and the next parent node
-
-// erteke csak annak van amelyik 0as 
-// a prent 
-
-
-
-       
-
-
 
 
 }
@@ -200,10 +185,12 @@ return <AppContext.Provider value = {{
         originalText : state.text,
         alert: state.error,
         xmltextright : state.xmltextright,
+        notReadOnlyElement: state.notReadOnlyElement,
         formatXml,
         clearXmlText,
         changeCounter,
-        compareDocuments
+        compareDocuments,
+        setNotReadOnly 
         
 }}>{children}</AppContext.Provider>
 

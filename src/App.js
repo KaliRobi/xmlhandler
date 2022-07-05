@@ -4,9 +4,10 @@ import NavBar from "./components/header";
 
 function App() {
   return (
+    <div  className="h-full">
     <AppProvider>
     
-    <div className="h-max">
+    <div>
       <div>
         <NavBar />
       </div>
@@ -19,6 +20,7 @@ function App() {
     
     </ div>
     </AppProvider>
+    </div>
   );
 }
 

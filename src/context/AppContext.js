@@ -21,6 +21,7 @@ export const AppProvider = ({children}) => {
         xmltextright: '', 
         error: "",
         counter : 1,
+        fastTrackCounter : -1,
         notReadOnlyElement: 1
      
     }
@@ -84,7 +85,12 @@ export const AppProvider = ({children}) => {
         })
      }
 
-    
+     const changeFastTrackCounter = () =>{
+        dispatch({
+            type: 'CHANEGFASTTRACKCOUNTER'
+        })
+     }
+
 // the style should have a second function, to clear all the fields.
     const clearXmlText = () => {
         document.getElementById('left').value = ''
@@ -94,6 +100,23 @@ export const AppProvider = ({children}) => {
 
 
     }
+
+// fast track logic
+
+const runFastTrack = (id) => {
+         // get the state
+         console.log(id)
+         const currentText = document.getElementById(`${id}`).value
+         console.log(currentText)
+         console.log(state.xmltextright)
+
+         // get the old state
+         // compare
+         
+
+}
+
+
 // TODO
 
 
@@ -186,11 +209,14 @@ return <AppContext.Provider value = {{
         alert: state.error,
         xmltextright : state.xmltextright,
         notReadOnlyElement: state.notReadOnlyElement,
+        fastTrackCounter: state.fastTrackCounter,
         formatXml,
         clearXmlText,
         changeCounter,
         compareDocuments,
-        setNotReadOnly 
+        setNotReadOnly,
+        changeFastTrackCounter ,
+        runFastTrack
         
 }}>{children}</AppContext.Provider>
 

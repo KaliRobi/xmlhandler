@@ -31,6 +31,12 @@ const AppReducer = (state, action) => {
                 ...state,
                 notReadOnlyElement: (state.notReadOnlyElement * -1)
             }
+        case 'CHANEGFASTTRACKCOUNTER':
+            return{
+            ...state,
+            fastTrackCounter: (state.fastTrackCounter * -1)
+            }
+
         default:
             return state
     }

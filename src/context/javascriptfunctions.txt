@@ -102,3 +102,50 @@ const text = document.getElementById('xml').value;
         
     // </div>
     // </div>
+
+
+
+
+
+
+
+
+
+    #################################
+
+const ttt = (string ) => {
+    let arr = []    
+    string.split(" ").forEach(ite => arr.push(ite))
+    // arr.forEach(it => console.log(it))
+    return arr    
+    }
+    
+    let arr1 = ttt(string1)
+    
+    let arr2 = ttt(string2)
+
+    // ez azt nezi hogy mennyiben egyeznek
+    
+    const compareFirst = (str, str2) => {
+        let  count = 0
+        let strLenght = str.length
+        let t = str.forEach(it => { str2.includes(it)==true ? count+=1 : count += 0 })
+        let num = (count/strLenght).toFixed(2)
+        return num
+    }
+    
+    let res = compareFirst(arr1, arr2)
+    console.log(res > 0.80)
+    // ha a megyezes 80 szazaleknal kisebb akkor ad egy trut
+    
+    const isItChanged = (res) => {
+    
+        return res > 0.80 ? false : true
+    
+    }
+    let yy = isItChanged(res)
+    
+    console.log(yy) 
+    console.log((isItChanged(res)== true))
+    if((isItChanged(res)== true))(string1 = "empty ")
+    console.log(string1)

@@ -94,6 +94,7 @@ export const AppProvider = ({children}) => {
 // the style should have a second function, to clear all the fields.
     const clearXmlText = () => {
         document.getElementById('left').value = ''
+        
         dispatch({
             type: 'CLEARXMLTEXT'
         })
@@ -101,18 +102,61 @@ export const AppProvider = ({children}) => {
 
     }
 
-// fast track logic
+// fast track logic on the left
 
 const runFastTrack = (id) => {
          // get the state
          console.log(id)
-         const currentText = document.getElementById(`${id}`).value
-         console.log(currentText)
-         console.log(state.xmltextright)
+         const leftDoc = getXml(id)
+         const rightDoc = getXml('right')
 
-         // get the old state
-         // compare
-         
+         const splitFileToArray = (string ) => {
+            let arr = []    
+            string.split(" ").forEach(ite => arr.push(ite))
+            return arr    
+            }
+            
+        const checkDifferenceOfArrays = (arr, arr2) => {
+            let  count = 0
+            const arrLenght = arr.length
+            arr.forEach(it => { arr2.includes(it)==true ? count+=1 : count += 0 })
+            const num = (count/arrLenght).toFixed(2)
+            return num
+        }      
+        
+        const isItChanged = (res) => {   
+            // change the tolerance of difference here         
+            return res > 0.90 ? false : true
+        }
+
+         if(rightDoc == ''){
+            formatXml(id)
+         } 
+
+
+          // create arrays from string
+            
+        const rightArray = splitFileToArray(rightDoc)
+        
+        const leftArray = splitFileToArray(leftDoc)
+       
+        
+       // check the diferences in the array, get the difference in percentage          
+       const difInPercent = checkDifferenceOfArrays(rightArray, leftArray) 
+            
+        console.log(difInPercent > 0.90)
+            // ha a megyezes 80 szazaleknal kisebb akkor ad egy trut
+        const isDifferent = isItChanged(difInPercent)  
+            
+            
+        console.log(isDifferent) 
+        if (isDifferent == true){
+            formatXml(id)
+        }
+            
+        
+
+
 
 }
 
@@ -203,13 +247,7 @@ const compareDocuments = () => {
   
     
 return <AppContext.Provider value = {{
-        xmltext: state.xmltext,
-        counter: state.counter,
-        originalText : state.text,
-        alert: state.error,
-        xmltextright : state.xmltextright,
-        notReadOnlyElement: state.notReadOnlyElement,
-        fastTrackCounter: state.fastTrackCounter,
+        ...state,
         formatXml,
         clearXmlText,
         changeCounter,

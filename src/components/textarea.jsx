@@ -4,7 +4,7 @@
 function TextArea ({id, value, ro, doOnChange}){
     if(doOnChange != null) {
 return(
-    <div className="h-screen">
+    <div className="h-screen" >
         <textarea 
         onChange={doOnChange}
         wrap="off" 
